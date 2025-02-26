@@ -14,7 +14,7 @@ public class RickAndMortyController {
 
     private final RickAndMortyService rickAndMortyService;
 
-    @GetMapping("/characters")
+    @GetMapping("/character")
     public List<RickAndMortyCharacter> getCharacters() {
         return rickAndMortyService.findAllCharcters();
     }

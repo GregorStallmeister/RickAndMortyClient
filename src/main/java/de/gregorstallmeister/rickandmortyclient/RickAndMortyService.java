@@ -8,13 +8,17 @@ import java.util.List;
 @Service
 public class RickAndMortyService {
 
-    private RestClient restClient = RestClient.builder().baseUrl("https://rickandmortyapi.com/api").build();
+    private final RestClient restClient;
+
+    RickAndMortyService(RestClient.Builder builder) {
+        this.restClient = builder.baseUrl("https://rickandmortyapi.com/api").build();
+    }
 
     public List<RickAndMortyCharacter> findAllCharcters() {
 
-        String response = restClient.get().uri("/character").retrieve().body(String.class);
-        System.out.println("RickAndMortyResponse raw:");
-        System.out.println(response);
+//        String response = restClient.get().uri("/character").retrieve().body(String.class);
+//        System.out.println("RickAndMortyResponse raw:");
+//        System.out.println(response);
 
         RickAndMortyResponse rickAndMortyResponse = restClient.get().uri("/character")
                 .retrieve().body(RickAndMortyResponse.class);
